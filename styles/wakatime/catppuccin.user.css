@@ -93,7 +93,7 @@
     background-color: @base !important;
 
     .waka-navbar {
-      background-color: @mantle !important;
+      background-color: @crust !important;
     }
 
     .navbar-border {
@@ -220,7 +220,7 @@
 
     /* Tabs */
 
-    li {
+    .menu-top li {
       & > a,
       &:hover > a {
         color: @subtext1 !important;
@@ -260,6 +260,13 @@
       color: @text !important;
       border-color: @surface0 !important;
       background-color: @mantle !important;
+
+      .tip, .row, #total-logged-time {
+        color: @subtext0 !important;
+        .title, .grand-total {
+          color: @text !important;
+        }
+      }
     }
 
     .panel table td {
@@ -304,6 +311,20 @@
     .credit,
     .text-muted {
       color: @subtext0 !important;
+    }
+
+    .chart-box {
+      text {
+        fill: @subtext0 !important;
+
+        &.total-digital {
+          fill: @text !important;
+        }
+      }
+
+      line {
+        stroke: @surface0 !important;
+      }
     }
 
     /* Coding progress bar color */
@@ -367,6 +388,31 @@
       background: @mantle !important;
       color: @text !important;
       text-shadow: 0 1px 0 @base !important;
+    }
+
+    /* Popover */
+    .popover, .popover-title {
+      background-color: @mantle !important;
+      border-color: @surface0 !important;
+    }
+
+    .radio label {
+      color: @text !important;
+    }
+
+    /* Code time increase/decrease */
+
+    .direction-up {
+      color: @green !important;
+    }
+
+    .direction-down {
+      color: @red !important;
+    }
+
+    /* Graph code time increase */
+    .bb-arc[style*="rgb(22, 206, 64)"] {
+      fill: @green !important;
     }
 
     code, kbd {
@@ -479,6 +525,79 @@
       }
       .domain {
         stroke: @surface0 !important;
+      }
+    }
+
+    /* Leaderboard select */
+    .selectize-input, .selectize-input:before {
+      border-color: @surface0 !important;
+      background-color: @mantle !important;
+    }
+
+    .selectize-dropdown {
+      background-color: @mantle !important;
+      border-color: @surface0 !important;
+
+      .selectize-dropdown-content {
+        background-color: @mantle !important;
+      }
+
+      .option {
+        color: @subtext0 !important;
+      }
+
+      .option.active {
+        color: @text !important;
+        background-color: @base !important;
+      }
+    }
+
+    /* Tables */
+
+    thead, tbody {
+      tr, td, th {
+        border-color: @surface0 !important;
+      }
+    }
+
+    .pulse {
+      background-color: @base !important;
+    }
+
+    /* FAQ Navbar */
+
+    .list-group-item {
+      border-color: @surface0 !important;
+      background-color: @mantle !important;
+
+      &:hover {
+        background-color: fade(@accent-color, 10%) !important;
+      }
+    }
+
+    /* FAQ Content */
+
+    .markdown-body {
+      p, h1, h2, h3, h4, h5, h6, li {
+        color: @text !important;
+        border-color: @surface0 !important;
+      }
+
+      .note-info {
+        &:before {
+          border-color: @sky @base !important;
+        }
+
+        color: @base !important;
+        background-color: @sky !important;
+      }
+    }
+
+    #nprogress .bar {
+      background-color: @accent-color !important;
+
+      .peg {
+        box-shadow: @accent-color 0px 0px 10px 0px, @accent-color 0px 0px 5px 0px !important;
       }
     }
 
