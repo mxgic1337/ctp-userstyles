@@ -100,7 +100,12 @@
       border-color: @surface0 !important;
     }
 
+    /* Profile activity graph */
     .insight-data {
+      div {
+        color: @subtext0 !important;
+      }
+
       & when (@lookup = latte) {
         rect {
           fill: @mantle !important;
@@ -130,8 +135,7 @@
           }
         }
       }
-      /* You can also negate the statement above by using
-    *  a `when not` guard clause. */
+
       & when not (@lookup = latte) {
         rect {
           fill: @mantle !important;
@@ -158,10 +162,21 @@
         }
       }
 
-
       text {
         fill: @text !important;
       }
+    }
+
+    i.fa.tip {
+      color: @text !important;
+    }
+
+    hr {
+      border-color: @surface0 !important;
+    }
+
+    textarea {
+      color: @text !important;
     }
 
     .navbar-badge a {
@@ -232,13 +247,16 @@
     }
 
     .chart-box,
+    .white-well,
     .project-card,
+    .goal-card,
     .brand,
     .card,
     .panel,
     .panel-heading,
     .modal-header,
-    .modal-content {
+    .modal-content,
+    .integration-card {
       color: @text !important;
       border-color: @surface0 !important;
       background-color: @mantle !important;
@@ -261,10 +279,26 @@
       }
     }
 
+    .control-label {
+      h4 {
+        color: @text !important;
+      }
+      div {
+        color: @subtext0 !important;
+      }
+    }
+
     /* Footer */
 
     .footer-sidebar > .container-fluid {
       border-color: @surface0 !important;
+    }
+
+    .footer-dark {
+      .container {
+        border-color: @surface0 !important;
+      }
+      background-color: @mantle !important;
     }
 
     .credit,
@@ -287,14 +321,38 @@
       }
     }
 
-    .btn-blue,
-    .btn-primary {
+    /* Buttons */
+
+    .btn {
       color: @base !important;
-      background-color: @accent-color !important;
       &:hover {
         color: @base !important;
         background-color: darken(@accent-color, 5%) !important;
       }
+    }
+
+    .btn-transparent {
+      color: @text !important;
+    }
+
+    .btn-default {
+      color: @text !important;
+      border-color: @surface0 !important;
+      background-color: @mantle !important;
+      &:hover {
+        color: @text !important;
+        background-color: @crust !important;
+      }
+    }
+
+    .btn-blue,
+    .btn-primary {
+      background-color: @accent-color !important;
+    }
+
+    .btn-danger {
+      color: @base !important;
+      background-color: @red !important;
     }
 
     .btn-success {
@@ -311,10 +369,29 @@
       text-shadow: 0 1px 0 @base !important;
     }
 
-    code {
+    code, kbd {
       background: @surface0 !important;
       color: @text !important;
     }
+
+    .nice-title {
+      color: @base !important;
+      background-color: @accent-color !important;
+    }
+
+    .nice-body {
+      background-color: @mantle !important;
+      border-color: @accent-color !important;
+      color: @text !important;
+    }
+
+    /* Verified checkmark in integrations */
+
+    .octicon-verified {
+      color: @green !important;
+    }
+
+    /* Tooltips */
 
     .tooltip-inner {
       color: @text !important;
@@ -385,8 +462,24 @@
       stroke: @base;
     }
 
-    path.bb-shape[style*="rgb(31, 154, 239)"] {
+    /* Coding activity graph */
+    .bb-area-Coding-Activity {
       fill: @accent-color !important;
+    }
+    .bb-line-Coding-Activity {
+      stroke: @accent-color !important;
+    }
+    .bb-circles-Coding-Activity .bb-circle {
+      stroke: @accent-color !important;
+      fill: @accent-color !important;
+    }
+    .bb-legend-item, .bb-axis {
+      text {
+        fill: @text !important;
+      }
+      .domain {
+        stroke: @surface0 !important;
+      }
     }
 
     /* If you need to specify an overwrite specific to a flavor
