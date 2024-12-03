@@ -1,0 +1,413 @@
+/* ==UserStyle==
+@name WakaTime Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/WakaTime
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/WakaTime
+@version 0.0.1
+@updateURL https://github.com/catppuccin/userstyles/raw/main/styles/WakaTime/catppuccin.user.css
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3AWakaTime
+@description Soothing pastel theme for WakaTime
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+
+@-moz-document domain('wakatime.com') {
+  /* This section applies the light/dark themes automatically based on the user's system theme.
+     Use the below example CSS to start if the website you are theming doesn't have a light/dark mode toggle.
+     For an actual example of this, see https://github.com/catppuccin/userstyles/blob/39288b593278e5efa48007d5fc001292cf910672/styles/brave-search/catppuccin.user.css#L16-L29.
+  */
+  @media (prefers-color-scheme: light) {
+    :root {
+      #catppuccin(@lightFlavor, @accentColor);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      #catppuccin(@darkFlavor, @accentColor);
+    }
+  }
+
+  /* If the website you are theming *does* have a light/dark mode toggle,
+     you can conditionally enable light/dark flavors by targeting whatever
+     attribute that website uses to indicate the theme. *The example below gives you an idea of what
+     to look for. The website you are theming may use a class-based approach (e.g. :root.theme-dark),
+     or any of the myriad of other methods like this.*
+     Use the below example CSS to start if this is the case.
+     For an actual example of this, see https://github.com/catppuccin/userstyles/blob/39288b593278e5efa48007d5fc001292cf910672/styles/youtube/catppuccin.user.css#L21-L30.
+  */
+  .color_scheme-Dark {
+    #catppuccin(@darkFlavor, @accentColor);
+  }
+  .color_scheme-Light {
+    #catppuccin(@lightFlavor, @accentColor);
+  }
+
+  #catppuccin(@lookup, @accent) {
+    @rosewater: @catppuccin[@@lookup][@rosewater];
+    @flamingo: @catppuccin[@@lookup][@flamingo];
+    @pink: @catppuccin[@@lookup][@pink];
+    @mauve: @catppuccin[@@lookup][@mauve];
+    @red: @catppuccin[@@lookup][@red];
+    @maroon: @catppuccin[@@lookup][@maroon];
+    @peach: @catppuccin[@@lookup][@peach];
+    @yellow: @catppuccin[@@lookup][@yellow];
+    @green: @catppuccin[@@lookup][@green];
+    @teal: @catppuccin[@@lookup][@teal];
+    @sky: @catppuccin[@@lookup][@sky];
+    @sapphire: @catppuccin[@@lookup][@sapphire];
+    @blue: @catppuccin[@@lookup][@blue];
+    @lavender: @catppuccin[@@lookup][@lavender];
+    @text: @catppuccin[@@lookup][@text];
+    @subtext1: @catppuccin[@@lookup][@subtext1];
+    @subtext0: @catppuccin[@@lookup][@subtext0];
+    @overlay2: @catppuccin[@@lookup][@overlay2];
+    @overlay1: @catppuccin[@@lookup][@overlay1];
+    @overlay0: @catppuccin[@@lookup][@overlay0];
+    @surface2: @catppuccin[@@lookup][@surface2];
+    @surface1: @catppuccin[@@lookup][@surface1];
+    @surface0: @catppuccin[@@lookup][@surface0];
+    @base: @catppuccin[@@lookup][@base];
+    @mantle: @catppuccin[@@lookup][@mantle];
+    @crust: @catppuccin[@@lookup][@crust];
+    @accent-color: @catppuccin[@@lookup][@@accent];
+
+    color-scheme: if(@lookup = latte, light, dark);
+
+    ::selection {
+      background-color: fade(@accent-color, 30%);
+    }
+
+    input,
+    textarea {
+      &::placeholder {
+        color: @subtext0 !important;
+      }
+    }
+
+    /* Start styling your website here: */
+    color: @text !important;
+    background-color: @base !important;
+
+    .waka-navbar {
+      background-color: @mantle !important;
+    }
+
+    .navbar-border {
+      border-color: @surface0 !important;
+    }
+
+    .insight-data {
+      & when (@lookup = latte) {
+        rect {
+          fill: @mantle !important;
+          &[style*="rgb(54, 82, 108)"],
+          &[fill*="#36526C"] {
+            fill: fade(@accent-color, 80%) !important;
+          }
+          &[style*="rgb(82, 125, 164)"],
+          &[fill*="#527DA4"] {
+            fill: fade(@accent-color, 60%) !important;
+          }
+          &[style*="rgb(139, 170, 197)"],
+          &[fill*="#8BAAC5"] {
+            fill: fade(@accent-color, 40%) !important;
+          }
+          &[style*="rgb(180, 199, 217)"],
+          &[fill*="#B4C7D9"] {
+            fill: fade(@accent-color, 20%) !important;
+          }
+          &[style*="rgb(235, 237, 240)"],
+          &[fill*="#EBEDF0"] {
+            fill: @mantle !important;
+          }
+          &[style*="rgb(0, 0, 0)"],
+          &[fill*="#000000"] {
+            fill: @accent-color !important;
+          }
+        }
+      }
+      /* You can also negate the statement above by using
+    *  a `when not` guard clause. */
+      & when not (@lookup = latte) {
+        rect {
+          fill: @mantle !important;
+          &[style*="rgb(54, 82, 108)"],
+          &[fill*="#36526C"] {
+            fill: fade(@accent-color, 20%) !important;
+          }
+          &[style*="rgb(82, 125, 164)"],
+          &[fill*="#527DA4"] {
+            fill: fade(@accent-color, 40%) !important;
+          }
+          &[style*="rgb(139, 170, 197)"],
+          &[fill*="#8BAAC5"] {
+            fill: fade(@accent-color, 60%) !important;
+          }
+          &[style*="rgb(180, 199, 217)"],
+          &[fill*="#B4C7D9"] {
+            fill: fade(@accent-color, 80%) !important;
+          }
+          &[style*="rgb(235, 237, 240)"],
+          &[fill*="#EBEDF0"] {
+            fill: fade(@accent-color, 100%) !important;
+          }
+        }
+      }
+
+
+      text {
+        fill: @text !important;
+      }
+    }
+
+    .navbar-badge a {
+      border-color: @surface0 !important;
+      color: @accent-color !important;
+    }
+
+    .dropdown {
+      &:hover .dropdown-toggle,
+      &:active .dropdown-toggle {
+        background-color: fade(@accent-color, 10%) !important;
+      }
+      &.open .dropdown-toggle {
+        background-color: fade(@accent-color, 20%) !important;
+      }
+    }
+
+    .dropdown-menu {
+      border-color: @surface0 !important;
+      background: @mantle !important;
+
+      li i.fa {
+        color: @subtext0 !important;
+      }
+
+      li.divider {
+        background: @surface0 !important;
+      }
+    }
+
+    /* Links */
+
+    a {
+      border-color: @accent-color !important;
+      color: @accent-color !important;
+    }
+    a:hover,
+    a:focus {
+      color: darken(@accent-color, 5%) !important;
+    }
+
+    /* Tabs */
+
+    li {
+      & > a,
+      &:hover > a {
+        color: @subtext1 !important;
+      }
+      &:hover > a {
+        background-color: fade(@accent-color, 10%) !important;
+      }
+      &.active > a {
+        background-color: fade(@accent-color, 15%) !important;
+      }
+    }
+
+    h1.name {
+      color: @text !important;
+    }
+
+    h2.username,
+    .profile-bio {
+      color: @subtext0 !important;
+    }
+
+    .left-panel ul.list-unstyled li i.fa {
+      color: @subtext0;
+    }
+
+    .chart-box,
+    .project-card,
+    .brand,
+    .card,
+    .panel,
+    .panel-heading,
+    .modal-header,
+    .modal-content {
+      color: @text !important;
+      border-color: @surface0 !important;
+      background-color: @mantle !important;
+    }
+
+    .panel table td {
+      border-color: @surface0 !important;
+      &:hover {
+        background-color: @base !important;
+      }
+    }
+
+    .form-control {
+      border-color: @surface0 !important;
+      background-color: @mantle !important;
+      &:focus {
+        box-shadow:
+          inset 0 1px 1px rgba(0, 0, 0, 0.075),
+          0 0 8px fade(@accent-color, 60%);
+      }
+    }
+
+    /* Footer */
+
+    .footer-sidebar > .container-fluid {
+      border-color: @surface0 !important;
+    }
+
+    .credit,
+    .text-muted {
+      color: @subtext0 !important;
+    }
+
+    /* Coding progress bar color */
+
+    .coding-progress {
+      background-color: @surface0 !important;
+    }
+
+    /* Team dashboards upgrade box */
+
+    .mock-dashboard .upgrade-box {
+      color: @base !important;
+      .text-muted {
+        color: @surface0 !important;
+      }
+    }
+
+    .btn-blue,
+    .btn-primary {
+      color: @base !important;
+      background-color: @accent-color !important;
+      &:hover {
+        color: @base !important;
+        background-color: darken(@accent-color, 5%) !important;
+      }
+    }
+
+    .btn-success {
+      color: @base !important;
+      background-color: @green !important;
+      border-color: @green !important;
+    }
+    /* Badges on plugin pages */
+
+    .btn-social {
+      background-image: none !important;
+      background: @mantle !important;
+      color: @text !important;
+      text-shadow: 0 1px 0 @base !important;
+    }
+
+    code {
+      background: @surface0 !important;
+      color: @text !important;
+    }
+
+    .tooltip-inner {
+      color: @text !important;
+      background: @surface0 !important;
+    }
+
+    .tooltip.right .tooltip-arrow {
+      border-right-color: @surface0;
+    }
+    .tooltip.left .tooltip-arrow {
+      border-left-color: @surface0;
+    }
+    .tooltip.top .tooltip-arrow {
+      border-top-color: @surface0;
+    }
+    .tooltip.bottom .tooltip-arrow {
+      border-bottom-color: @surface0;
+    }
+
+    /* Dashboard nav bar */
+
+    .nav-side-menu {
+      background-color: @mantle !important;
+
+      li > a {
+        border-color: @surface0 !important;
+        color: @text !important;
+
+        i.fa {
+          color: @subtext0 !important;
+        }
+      }
+
+      li:hover > a {
+        background-color: @surface0 !important;
+      }
+
+      li.active > a {
+        border-color: @accent-color !important;
+        background-color: @surface0 !important;
+      }
+
+      .sidebar-upgrade-item {
+        a {
+          color: @base !important;
+          border-color: @accent-color;
+        }
+        a:hover {
+          background-color: @base !important;
+        }
+      }
+    }
+
+    li.title {
+      color: @text !important;
+    }
+
+    .toast-info {
+      .toast-close-button {
+        color: @base !important;
+      }
+      color: @base !important;
+      background-color: @blue;
+    }
+
+    .bb-chart-arcs-background {
+      fill: @base;
+      stroke: @base;
+    }
+
+    path.bb-shape[style*="rgb(31, 154, 239)"] {
+      fill: @accent-color !important;
+    }
+
+    /* If you need to specify an overwrite specific to a flavor
+  *  (e.g. only when the flavor is set to latte), you can use a `when` guard clause. */
+    & when (@lookup = latte) {
+      /* ... */
+    }
+    /* You can also negate the statement above by using
+  *  a `when not` guard clause. */
+    & when not (@lookup = latte) {
+      /* ... */
+    }
+  }
+}
+
+/* prettier-ignore */
+@catppuccin: {
+  @latte:     { @rosewater: #dc8a78; @flamingo: #dd7878; @pink: #ea76cb; @mauve: #8839ef; @red: #d20f39; @maroon: #e64553; @peach: #fe640b; @yellow: #df8e1d; @green: #40a02b; @teal: #179299; @sky: #04a5e5; @sapphire: #209fb5; @blue: #1e66f5; @lavender: #7287fd; @text: #4c4f69; @subtext1: #5c5f77; @subtext0: #6c6f85; @overlay2: #7c7f93; @overlay1: #8c8fa1; @overlay0: #9ca0b0; @surface2: #acb0be; @surface1: #bcc0cc; @surface0: #ccd0da; @base: #eff1f5; @mantle: #e6e9ef; @crust: #dce0e8; };
+  @frappe:    { @rosewater: #f2d5cf; @flamingo: #eebebe; @pink: #f4b8e4; @mauve: #ca9ee6; @red: #e78284; @maroon: #ea999c; @peach: #ef9f76; @yellow: #e5c890; @green: #a6d189; @teal: #81c8be; @sky: #99d1db; @sapphire: #85c1dc; @blue: #8caaee; @lavender: #babbf1; @text: #c6d0f5; @subtext1: #b5bfe2; @subtext0: #a5adce; @overlay2: #949cbb; @overlay1: #838ba7; @overlay0: #737994; @surface2: #626880; @surface1: #51576d; @surface0: #414559; @base: #303446; @mantle: #292c3c; @crust: #232634; };
+  @macchiato: { @rosewater: #f4dbd6; @flamingo: #f0c6c6; @pink: #f5bde6; @mauve: #c6a0f6; @red: #ed8796; @maroon: #ee99a0; @peach: #f5a97f; @yellow: #eed49f; @green: #a6da95; @teal: #8bd5ca; @sky: #91d7e3; @sapphire: #7dc4e4; @blue: #8aadf4; @lavender: #b7bdf8; @text: #cad3f5; @subtext1: #b8c0e0; @subtext0: #a5adcb; @overlay2: #939ab7; @overlay1: #8087a2; @overlay0: #6e738d; @surface2: #5b6078; @surface1: #494d64; @surface0: #363a4f; @base: #24273a; @mantle: #1e2030; @crust: #181926; };
+  @mocha:     { @rosewater: #f5e0dc; @flamingo: #f2cdcd; @pink: #f5c2e7; @mauve: #cba6f7; @red: #f38ba8; @maroon: #eba0ac; @peach: #fab387; @yellow: #f9e2af; @green: #a6e3a1; @teal: #94e2d5; @sky: #89dceb; @sapphire: #74c7ec; @blue: #89b4fa; @lavender: #b4befe; @text: #cdd6f4; @subtext1: #bac2de; @subtext0: #a6adc8; @overlay2: #9399b2; @overlay1: #7f849c; @overlay0: #6c7086; @surface2: #585b70; @surface1: #45475a; @surface0: #313244; @base: #1e1e2e; @mantle: #181825; @crust: #11111b; };
+}
+
+// vim:ft=less
