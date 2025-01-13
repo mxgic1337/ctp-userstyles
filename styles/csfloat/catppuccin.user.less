@@ -1,0 +1,232 @@
+/* ==UserStyle==
+@name CSFloat Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/csfloat
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/csfloat
+@version 2000.01.01
+@updateURL https://github.com/catppuccin/userstyles/raw/main/styles/csfloat/catppuccin.user.less
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Acsfloat
+@description Soothing pastel theme for CSFloat
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+
+@-moz-document domain("csfloat.com") {
+  :root {
+    @media (prefers-color-scheme: light) {
+      #catppuccin(@lightFlavor);
+    }
+    @media (prefers-color-scheme: dark) {
+      #catppuccin(@darkFlavor);
+    }
+  }
+
+  #catppuccin(@flavor) {
+    @rosewater: @catppuccin[@@flavor][@rosewater];
+    @flamingo: @catppuccin[@@flavor][@flamingo];
+    @pink: @catppuccin[@@flavor][@pink];
+    @mauve: @catppuccin[@@flavor][@mauve];
+    @red: @catppuccin[@@flavor][@red];
+    @maroon: @catppuccin[@@flavor][@maroon];
+    @peach: @catppuccin[@@flavor][@peach];
+    @yellow: @catppuccin[@@flavor][@yellow];
+    @green: @catppuccin[@@flavor][@green];
+    @teal: @catppuccin[@@flavor][@teal];
+    @sky: @catppuccin[@@flavor][@sky];
+    @sapphire: @catppuccin[@@flavor][@sapphire];
+    @blue: @catppuccin[@@flavor][@blue];
+    @lavender: @catppuccin[@@flavor][@lavender];
+    @text: @catppuccin[@@flavor][@text];
+    @subtext1: @catppuccin[@@flavor][@subtext1];
+    @subtext0: @catppuccin[@@flavor][@subtext0];
+    @overlay2: @catppuccin[@@flavor][@overlay2];
+    @overlay1: @catppuccin[@@flavor][@overlay1];
+    @overlay0: @catppuccin[@@flavor][@overlay0];
+    @surface2: @catppuccin[@@flavor][@surface2];
+    @surface1: @catppuccin[@@flavor][@surface1];
+    @surface0: @catppuccin[@@flavor][@surface0];
+    @base: @catppuccin[@@flavor][@base];
+    @mantle: @catppuccin[@@flavor][@mantle];
+    @crust: @catppuccin[@@flavor][@crust];
+    @accent: @catppuccin[@@flavor][@@accentColor];
+
+    color-scheme: if(@flavor = latte, light, dark);
+
+    ::selection {
+      background-color: fade(@accent, 30%);
+    }
+
+    input,
+    textarea {
+      &::placeholder {
+        color: @subtext0 !important;
+      }
+    }
+
+    background-color: @base;
+    --primary-color: @accent;
+    --primary-text-color: @text;
+    --dark-primary-text-color: fade(@base, 87%);
+    --subtext-color: @subtext0;
+    --highlight-background-minimal: fade(@surface0, 20%);
+    --highlight-background: fade(@surface0, 50%);
+    --highlight-background-heavy: fade(@surface0, 70%);
+    --button-highlight-background: fade(@accent, 15%);
+    --dialog-background: fade(@mantle, 80%);
+    --dialog-background-firefox: @mantle;
+    --dropdown-color: fade(@mantle, 80%);
+    --toolbar-background: fade(@base, 80%);
+    --toolbar-background-firefox: @base;
+    --warn-background-color: fade(@red, 5%);
+    --warn-text-color: @red;
+    --warn-text-lighter-color: @peach;
+    --module-background-color: @base;
+    --module-highlight-background-color: @surface0;
+    --backing-background-color: @mantle;
+
+    .mat-button-toggle-group, .item-actions {
+      --mat-standard-button-toggle-selected-state-background-color: @surface0;
+    }
+    .mat-mdc-progress-bar {
+      --mdc-linear-progress-active-indicator-color: @accent;
+      --mdc-linear-progress-track-color: fade(@accent, 25%);
+    }
+
+    /* Floats */
+    .float-bar-width {
+      &.progress-width-fn {
+        background-color: @green !important;
+      }
+      &.progress-width-mw {
+        background-color: @teal !important;
+      }
+      &.progress-width-ft {
+        background-color: @yellow !important;
+      }
+      &.progress-width-ww {
+        background-color: @peach !important;
+      }
+      &.progress-width-bs {
+        background-color: @red !important;
+      }
+    }
+
+    .green {
+      color: @green !important;
+    }
+
+    .advanced-search {
+      --highlight-background-minimal: @mantle;
+    }
+
+    .category {
+      .stattrak {
+        color: @peach !important;
+      }
+      .souvenir {
+        color: @yellow !important;
+      }
+    }
+
+    /* Rarities */
+    .image {
+      /* Gold */
+      &[style*="border-bottom-color: rgb(228, 174, 57);"] {
+        border-bottom-color: @yellow !important;
+        background-image: linear-gradient(
+          rgba(27, 29, 36, 0) 20%,
+          fade(@yellow, 32%) 100%
+        ) !important;
+      }
+      /* Red */
+      &[style*="border-bottom-color: rgb(235, 75, 75);"] {
+        border-bottom-color: @red !important;
+        background-image: linear-gradient(
+          rgba(27, 29, 36, 0) 20%,
+          fade(@red, 32%) 100%
+        ) !important;
+      }
+      /* Pink */
+      &[style*="border-bottom-color: rgb(211, 44, 230);"] {
+        border-bottom-color: @pink !important;
+        background-image: linear-gradient(
+          rgba(27, 29, 36, 0) 20%,
+          fade(@pink, 32%) 100%
+        ) !important;
+      }
+      /* Purple */
+      &[style*="border-bottom-color: rgb(49, 60, 255);"] {
+        border-bottom-color: @mauve !important;
+        background-image: linear-gradient(
+          rgba(27, 29, 36, 0) 20%,
+          fade(@mauve, 32%) 100%
+        ) !important;
+      }
+      /* Blue */
+      &[style*="border-bottom-color: rgb(63, 97, 255);"] {
+        border-bottom-color: @blue !important;
+        background-image: linear-gradient(
+          rgba(27, 29, 36, 0) 20%,
+          fade(@blue, 32%) 100%
+        ) !important;
+      }
+      /* Gray */
+      &[style*="border-bottom-color: rgb(132, 123, 110);"] {
+        border-bottom-color: @subtext0 !important;
+        background-image: linear-gradient(
+          rgba(27, 29, 36, 0) 20%,
+          fade(@subtext0, 32%) 100%
+        ) !important;
+      }
+    }
+
+    .mat-mdc-raised-button.mat-primary {
+      --mdc-protected-button-container-color: @accent !important;
+      --mdc-protected-button-label-text-color: @base !important;
+      --mat-icon-color: @base !important;
+    }
+
+    .mat-warn {
+      --mdc-protected-button-label-text-color: @red !important;
+    }
+
+    mat-icon {
+      ellipse[fill="#237BFF"], [fill="#237BFF"] {
+        fill: @accent;
+      }
+
+      [fill="white"] {
+        fill: @text;
+      }
+
+      [stroke="#237BFF"] {
+        stroke: @accent;
+      }
+
+      [stroke="#FF782B"] {
+        stroke: @peach;
+      }
+    }
+
+    .item-name, .subtext span {
+      &[style="color: white;"] {
+        color: @text !important;
+      }
+      &[style="color: rgb(255, 120, 44);"] {
+        color: @peach !important;
+      }
+    }
+  }
+}
+
+/* deno-fmt-ignore */
+@catppuccin: {
+  @latte:     { @rosewater: #dc8a78; @flamingo: #dd7878; @pink: #ea76cb; @mauve: #8839ef; @red: #d20f39; @maroon: #e64553; @peach: #fe640b; @yellow: #df8e1d; @green: #40a02b; @teal: #179299; @sky: #04a5e5; @sapphire: #209fb5; @blue: #1e66f5; @lavender: #7287fd; @text: #4c4f69; @subtext1: #5c5f77; @subtext0: #6c6f85; @overlay2: #7c7f93; @overlay1: #8c8fa1; @overlay0: #9ca0b0; @surface2: #acb0be; @surface1: #bcc0cc; @surface0: #ccd0da; @base: #eff1f5; @mantle: #e6e9ef; @crust: #dce0e8; };
+  @frappe:    { @rosewater: #f2d5cf; @flamingo: #eebebe; @pink: #f4b8e4; @mauve: #ca9ee6; @red: #e78284; @maroon: #ea999c; @peach: #ef9f76; @yellow: #e5c890; @green: #a6d189; @teal: #81c8be; @sky: #99d1db; @sapphire: #85c1dc; @blue: #8caaee; @lavender: #babbf1; @text: #c6d0f5; @subtext1: #b5bfe2; @subtext0: #a5adce; @overlay2: #949cbb; @overlay1: #838ba7; @overlay0: #737994; @surface2: #626880; @surface1: #51576d; @surface0: #414559; @base: #303446; @mantle: #292c3c; @crust: #232634; };
+  @macchiato: { @rosewater: #f4dbd6; @flamingo: #f0c6c6; @pink: #f5bde6; @mauve: #c6a0f6; @red: #ed8796; @maroon: #ee99a0; @peach: #f5a97f; @yellow: #eed49f; @green: #a6da95; @teal: #8bd5ca; @sky: #91d7e3; @sapphire: #7dc4e4; @blue: #8aadf4; @lavender: #b7bdf8; @text: #cad3f5; @subtext1: #b8c0e0; @subtext0: #a5adcb; @overlay2: #939ab7; @overlay1: #8087a2; @overlay0: #6e738d; @surface2: #5b6078; @surface1: #494d64; @surface0: #363a4f; @base: #24273a; @mantle: #1e2030; @crust: #181926; };
+  @mocha:     { @rosewater: #f5e0dc; @flamingo: #f2cdcd; @pink: #f5c2e7; @mauve: #cba6f7; @red: #f38ba8; @maroon: #eba0ac; @peach: #fab387; @yellow: #f9e2af; @green: #a6e3a1; @teal: #94e2d5; @sky: #89dceb; @sapphire: #74c7ec; @blue: #89b4fa; @lavender: #b4befe; @text: #cdd6f4; @subtext1: #bac2de; @subtext0: #a6adc8; @overlay2: #9399b2; @overlay1: #7f849c; @overlay0: #6c7086; @surface2: #585b70; @surface1: #45475a; @surface0: #313244; @base: #1e1e2e; @mantle: #181825; @crust: #11111b; };
+};
