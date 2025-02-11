@@ -77,20 +77,32 @@
     }
 
     /* Links */
-    a {
+    a, #date-picker {
       color: @accent;
+      border-color: @accent;
 
       &:hover {
         color: darken(@accent, 5%);
+        border-color: darken(@accent, 5%);
       }
     }
 
     .chart-box {
       background-color: @mantle;
     }
-  
+
     #main-wrapper .nav-side-menu {
       background-color: @mantle;
+    }
+
+    /* Sidebar link */
+    .menu-list ul li {
+      &.active, &:hover {
+        a {
+          background-color: @surface0 !important;
+          border-color: @accent !important;
+        }
+      }
     }
 
     .waka-navbar {
@@ -134,10 +146,41 @@
       }
     }
 
-    rect when (@flavor = latte) {
+    rect when (@flavor = latte) {}
 
+    .chart-box {
+      color: @subtext0;
+
+      /* Chart box text */
+      .y.axis {
+        fill: @subtext0 !important;
+
+        &.link:hover {
+          fill: @accent !important;
+        }
+      }
+
+      .total-digital {
+        fill: @text !important;
+      }
+
+      .grand-total {
+        color: @text;
+      }
+
+      a {
+        color: @subtext0 !important;
+
+        &:hover {
+          color: @accent !important;
+        }
+      }
+
+      /* Average coding time increase */
+      .direction-up {
+        color: @green !important;
+      }
     }
-   
   }
 }
 
