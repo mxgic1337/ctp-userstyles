@@ -119,30 +119,36 @@
     }
 
     /* Code time rects */
-    rect when not(@flavor = latte) {
-      /* 13+ hrs */
-      &[fill="#EBEDF0"] {
-        fill: @accent !important;
+    #days {
+      text {
+        fill: @text;
       }
-      /* 11-12 hrs */
-      &[fill="#B4C7D9"] {
-        fill: fade(@accent, 80%) !important;
-      }
-      /* 9-10 hrs */
-      &[fill="#8BAAC5"] {
-        fill: fade(@accent, 60%) !important;
-      }
-      /* 4-8 hrs */
-      &[fill="#527DA4"] {
-        fill: fade(@accent, 40%) !important;
-      }
-      /* 1-3 hrs */
-      &[fill="#36526C"] {
-        fill: fade(@accent, 20%) !important;
-      }
-      /* None */
-      &[fill="#161b22"], &[style*="fill: rgb(22, 27, 34)"] {
-        fill: @mantle !important;
+
+      rect {
+        /* 13+ hrs */
+        &[fill="#EBEDF0"], &[style*="fill: rgb(235, 237, 240)"] {
+          fill: @accent !important;
+        }
+        /* 11-12 hrs */
+        &[fill="#B4C7D9"], &[style*="fill: rgb(180, 199, 217)"] {
+          fill: fade(@accent, 80%) !important;
+        }
+        /* 9-10 hrs */
+        &[fill="#8BAAC5"], &[style*="fill: rgb(139, 170, 197)"] {
+          fill: fade(@accent, 60%) !important;
+        }
+        /* 4-8 hrs */
+        &[fill="#527DA4"], &[style*="fill: rgb(82, 125, 164)"] {
+          fill: fade(@accent, 40%) !important;
+        }
+        /* 1-3 hrs */
+        &[fill="#36526C"], &[style*="fill: rgb(54, 82, 108)"] {
+          fill: fade(@accent, 20%) !important;
+        }
+        /* None */
+        &[fill="#161b22"], &[style*="fill: rgb(22, 27, 34)"] {
+          fill: @mantle !important;
+        }
       }
     }
 
