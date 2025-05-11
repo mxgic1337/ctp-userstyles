@@ -774,6 +774,13 @@ userstyles:
     icon: snapchat
     color: yellow
     current-maintainers: [*itzTheMeow]
+  soundcloud:
+    name: SoundCloud
+    link: https://soundcloud.com
+    categories: [music]
+    icon: soundcloud
+    color: peach
+    current-maintainers: [*mxgic1337]
   spotify-web:
     name: Spotify Web
     link: https://open.spotify.com
