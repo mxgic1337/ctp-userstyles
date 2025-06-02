@@ -65,9 +65,6 @@
       }
     }
 
-    /* Start styling your website here: */
-    background-color: @base;
-
     --mantine-color-body: @base !important;
     --mantine-color-lime-filled: @green !important;
     --mantine-color-green-filled: @green !important;
@@ -99,7 +96,18 @@
       background-color: @mantle !important;
     }
 
-    a[style^="color: rgb(255, 212, 59);"], a[style^="color:#ffd43b;"] {
+    a:link:not(.mantine-Text-root) {
+      color: @mauve;
+      &:hover {
+        color: darken(@mauve, 5%);
+      }
+    }
+
+    /* Notes */
+    a[style^="color: rgb(42, 78, 176);"],
+    a[style^="color: rgb(255, 212, 59);"],
+    a[style^="color:#ffd43b"],
+    div[color="#ffd43b"] {
       color: @accent !important;
     }
 
@@ -110,7 +118,8 @@
         color: @base;
       }
 
-      &[style*="--ai-color:white"] {
+      /* Header icons */
+      &.mantine-ActionIcon-root {
         color: @text;
       }
     }
@@ -186,19 +195,21 @@
       }
     }
 
-    blockquote[style^="--bq-bg-light:rgba(250, 176, 5, 0.07);"] {
-      background-color: fade(@yellow, 7%);
+    blockquote[style*="rgba(250, 176, 5, 0.07);"] {
+      background-color: fade(@yellow, 7%) !important;
     }
 
-    /* If you need to specify an overwrite specific to a flavor
-     *  (e.g. only when the flavor is set to latte), you can use a `when` guard clause. */
+    [class*="mantine-Switch"],
+    .mantine-Paper-root[style^="--paper-radius:var(--mantine-radius-xl);"],
+    .mantine-Timeline-itemBullet {
+      --mantine-color-white: @base !important;
+      svg {
+        stroke: @base;
+      }
+    }
+
     & when (@flavor = latte) {
       --mantine-color-white: @base;
-    }
-    /* You can also negate the statement above by using
-     *  a `when not` guard clause. */
-    & when not(@flavor = latte) {
-      /* ... */
     }
   }
 }
