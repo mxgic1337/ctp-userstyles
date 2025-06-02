@@ -104,6 +104,12 @@ userstyles:
     note: "Make sure to use the default **Light** theme."
     current-maintainers: []
     past-maintainers: [*GenShibe]
+  are-we-anticheat-yet:
+    name: Are We Anti-Cheat Yet?
+    link: https://areweanticheatyet.com
+    categories: [game]
+    color: blue
+    current-maintainers: [*mxgic1337]
   boringproxy:
     name: boringproxy
     link: https://boringproxy.io
