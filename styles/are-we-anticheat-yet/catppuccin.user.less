@@ -123,23 +123,23 @@
       &[style^="border: 2px solid "] {
         border-color: @accent !important;
       }
-
+      /* Supported */
       div[style*="background: lime"] {
         background-color: @green !important;
       }
-
+      /* Denied */
       div[style*="background: red"] {
         background-color: @red !important;
       }
-
+      /* Running */
       div[style*="background: blue"] {
         background-color: @blue !important;
       }
-
+      /* Broken */
       div[style*="background: orange"] {
         background-color: @peach !important;
       }
-
+      /* Planned */
       div[style*="background: purple"] {
         background-color: @mauve !important;
       }
@@ -160,6 +160,34 @@
       &[color="gray"] .tabler-icon {
         color: @text;
       }
+    }
+
+    /* Row highlights */
+    tr {
+      /* Supported */
+      &[style*="background-color: rgba(102, 168, 15, 0.2);"] {
+        background-color: fade(@green, 20%) !important;
+      }
+      /* Running */
+      &[style*="background-color: rgba(25, 113, 194, 0.2);"] {
+        background-color: fade(@blue, 20%) !important;
+      }
+      /* Planned */
+      &[style*="background-color: rgba(156, 54, 181, 0.2);"] {
+        background-color: fade(@mauve, 20%) !important;
+      }
+      /* Broken */
+      &[style*="background-color: rgba(232, 89, 12, 0.2);"] {
+        background-color: fade(@peach, 20%) !important;
+      }
+      /* Denied */
+      &[style*="background-color: rgba(224, 49, 49, 0.2);"] {
+        background-color: fade(@red, 20%) !important;
+      }
+    }
+
+    blockquote[style^="--bq-bg-light:rgba(250, 176, 5, 0.07);"] {
+      background-color: fade(@yellow, 7%);
     }
 
     /* If you need to specify an overwrite specific to a flavor
